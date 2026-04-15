@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills | Rashi Goenka</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Prevents flicker before GSAP starts */
+        .progress-bar {
+            width: 0%;
+            transition: none !important;
+        }
+        .skill-item { opacity: 0; transform: translateY(30px); }
+
+        ::selection { background: white; color: black; }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white selection:bg-white selection:text-black overflow-x-hidden">
+    
+    <div class="custom-cursor" id="cursor"></div>
+
+    <nav class="fixed top-0 w-full p-6 md:px-12 flex justify-between items-center z-[70] backdrop-blur-md bg-black/20 border-b border-white/5">
+        <a href="index.html" class="flex items-center">
+            <img src="rrr.png" alt="Rashi Goenka Logo" class="h-8 md:h-10 w-auto object-contain">
+        </a>
+        
+        <div class="hidden md:flex gap-8 items-center font-bold text-sm tracking-widest uppercase">
+            <a href="index.html" class="hover:text-zinc-500 transition">HOME</a>
+            <a href="work.html" class="hover:text-zinc-500 transition">WORK</a>
+            <a href="skills.html" class="text-white border-b border-white">SKILLS</a>
+            <a href="about.html" class="hover:text-zinc-500 transition">ABOUT</a>
+            <a href="contact.html" class="bg-white text-black px-5 py-2 rounded-full hover:bg-zinc-300 transition text-xs">CONTACT</a>
+        </div>
+
+        <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 items-end group z-[90]">
+            <span class="w-8 h-0.5 bg-white group-hover:w-10 transition-all"></span>
+            <span class="w-5 h-0.5 bg-white"></span>
+        </button>
+    </nav>
+
+    <div id="menu" class="bg-zinc-950">
+        <button id="close-btn" class="absolute top-8 right-8 text-4xl hover:text-zinc-500 transition">&times;</button>
+        <div class="flex flex-col gap-6 text-center">
+            <a href="index.html" class="menu-link text-5xl font-black text-white hover:text-zinc-500 transition uppercase tracking-tighter">Home</a>
+            <a href="work.html" class="menu-link text-5xl font-black text-white hover:text-zinc-500 transition uppercase tracking-tighter">Work</a>
+            <a href="skills.html" class="menu-link text-5xl font-black text-white hover:text-zinc-500 transition uppercase tracking-tighter">Skills</a>
+            <a href="about.html" class="menu-link text-5xl font-black text-white hover:text-zinc-500 transition uppercase tracking-tighter">About</a>
+            <a href="contact.html" class="menu-link text-5xl font-black text-white hover:text-zinc-500 transition uppercase tracking-tighter">Contact</a>
+        </div>
+    </div>
+
+    <main class="pt-32 md:pt-48 px-6 md:px-12 pb-20 max-w-6xl mx-auto">
+        <div class="flex flex-col gap-12 md:gap-16">
+            
+            <div class="text-left">
+                <h1 class="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none mb-6 uppercase">
+                    EXPERTISE<span class="text-zinc-700">.</span>
+                </h1>
+                <p class="text-zinc-400 text-base md:text-lg max-w-2xl leading-relaxed uppercase">
+                    A collection of tools and technologies I use to bring creative visions to life.
+                </p>
+            </div>
+
+            <div id="skills-container" class="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-12">
+                
+                <div class="skill-item">
+                    <div class="flex justify-between items-end mb-3">
+                        <span class="text-lg md:text-xl font-bold uppercase">Adobe InDesign</span>
+                        <span class="text-zinc-500 font-mono text-sm">96%</span>
+                    </div>
+                    <div class="h-[2px] w-full bg-zinc-900 overflow-hidden">
+                        <div class="progress-bar h-full bg-white" data-target="96%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="flex justify-between items-end mb-3">
+                        <span class="text-lg md:text-xl font-bold uppercase">Procreate</span>
+                        <span class="text-zinc-500 font-mono text-sm">98%</span>
+                    </div>
+                    <div class="h-[2px] w-full bg-zinc-900 overflow-hidden">
+                        <div class="progress-bar h-full bg-white" data-target="98%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="flex justify-between items-end mb-3">
+                        <span class="text-lg md:text-xl font-bold uppercase">Adobe Photoshop</span>
+                        <span class="text-zinc-500 font-mono text-sm">90%</span>
+                    </div>
+                    <div class="h-[2px] w-full bg-zinc-900 overflow-hidden">
+                        <div class="progress-bar h-full bg-white" data-target="90%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="flex justify-between items-end mb-3">
+                        <span class="text-lg md:text-xl font-bold uppercase">Figma</span>
+                        <span class="text-zinc-500 font-mono text-sm">89%</span>
+                    </div>
+                    <div class="h-[2px] w-full bg-zinc-900 overflow-hidden">
+                        <div class="progress-bar h-full bg-white" data-target="89%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="flex justify-between items-end mb-3">
+                        <span class="text-lg md:text-xl font-bold uppercase">Adobe Illustrator</span>
+                        <span class="text-zinc-500 font-mono text-sm">95%</span>
+                    </div>
+                    <div class="h-[2px] w-full bg-zinc-900 overflow-hidden">
+                        <div class="progress-bar h-full bg-white" data-target="95%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="flex justify-between items-end mb-3">
+                        <span class="text-lg md:text-xl font-bold uppercase">Canva</span>
+                        <span class="text-zinc-500 font-mono text-sm">98%</span>
+                    </div>
+                    <div class="h-[2px] w-full bg-zinc-900 overflow-hidden">
+                        <div class="progress-bar h-full bg-white" data-target="98%"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-black py-20 px-6 md:px-12 border-t border-white/10 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+            <div>
+                <h2 class="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-none">SAY HI.</h2>
+                <a href="mailto:rashigoenka27@gmail.com" class="text-xl md:text-2xl text-zinc-500 hover:text-white transition break-all">rashigoenka27@gmail.com</a>
+            </div>
+            <div class="flex flex-wrap gap-8 font-bold text-zinc-600 uppercase tracking-widest text-sm">
+                <a href="https://www.behance.net/rashigoenka" target="_blank" class="hover:text-white transition">BEHANCE</a>
+                <a href="https://linkedin.com/in/rashi-goenka-34b42027a" target="_blank" class="hover:text-white transition">LINKEDIN</a>
+                <a href="mailto:rashigoenka27@gmail.com" class="hover:text-white transition">MAIL</a>
+            </div>
+        </div>
+        <div class="mt-20 text-zinc-800 font-mono text-xs uppercase tracking-widest">
+            © 2026 Rashi Goenka. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+
+            if (typeof gsap !== "undefined") {
+                gsap.registerPlugin(ScrollTrigger);
+
+                gsap.to(".skill-item", {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    stagger: 0.1,
+                    ease: "power3.out",
+                    delay: 0.2
+                });
+
+                gsap.to(".progress-bar", {
+                    scrollTrigger: {
+                        trigger: "#skills-container",
+                        start: "top 80%", 
+                    },
+                    width: (i, target) => target.getAttribute('data-target'),
+                    duration: 2.5,
+                    ease: "expo.out",
+                    stagger: 0.2
+                });
+            }
+
+        });
+    </script>
+</body>
+</html>

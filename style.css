@@ -1,0 +1,159 @@
+/* style.css - Fixed & Stable Version */
+
+/* 1. Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    --bg-dark: #09090b;
+    --zinc-900: #18181b;
+    --zinc-500: #71717a;
+}
+
+html {
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #fff;
+    overflow-x: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.5;
+}
+
+/* 2. Custom Cursor */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    will-change: transform;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .custom-cursor { display: none; }
+}
+
+/* 3. Navigation */
+nav {
+    z-index: 70;
+    transition: background 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+/* 4. MOBILE MENU (FIXED CORE PART) */
+#menu {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background-color: var(--bg-dark);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* IMPORTANT FIXES */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100%);
+    
+    pointer-events: none; /* prevents blocking clicks when hidden */
+
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    will-change: transform, opacity;
+}
+
+/* ACTIVE STATE (fallback without GSAP) */
+#menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+#menu-btn {
+    z-index: 110;
+}
+
+/* 5. Skills */
+.skill-item {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.progress-bar {
+    width: 0;
+    will-change: width;
+}
+
+.skill-track {
+    background-color: var(--zinc-900);
+    overflow: hidden;
+}
+
+/* 6. Work Section */
+.work-card {
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+    background: rgba(20, 20, 20, 0.4);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.work-card img {
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.work-card:hover img {
+    transform: scale(1.05);
+}
+
+/* 7. Typography */
+h1, h2, h3 {
+    letter-spacing: -0.02em;
+}
+
+::selection {
+    background-color: #fff;
+    color: #000;
+}
+
+/* 8. GSAP Helpers */
+.reveal-text {
+    opacity: 0;
+    transform: translateY(30px);
+    will-change: transform, opacity;
+}
+
+/* 9. Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3.25rem !important;
+        line-height: 1.1 !important;
+    }
+
+    .work-card:hover {
+        transform: none;
+    }
+
+    nav {
+        padding: 1.5rem !important;
+    }
+}
